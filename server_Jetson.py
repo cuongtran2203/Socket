@@ -10,6 +10,7 @@ def args():
     parser.add_argument("--ip",default=9999,type=int,help="Chọn cổng port")
     parser.add_argument("--com",default="/dev/ttyUSB1",help="Chọn cổng COM kết nối arduino")
     parser.add_argument("--ip_cam",default=None,type=str,help="Nhập địa chỉ ip cam")
+    parser.add_argument("--baudrate",default=9600,type=int,help="lựa chọn tần số kết nối")
     args=parser.parse_args()
     return args
 ROOT=os.makedirs("datasets",exist_ok=True)
@@ -20,7 +21,7 @@ if __name__=="__main__":
     COM=arg.com
     ser = serial.Serial(
     port=COM,
-    baudrate=9600,
+    baudrate=arg.baudrate,
     parity=serial.PARITY_ODD,
     stopbits=serial.STOPBITS_TWO,
     bytesize=serial.SEVENBITS
