@@ -14,6 +14,7 @@ def args():
     args=parser.parse_args()
     return args
 ROOT=os.makedirs("datasets",exist_ok=True)
+
 if __name__=="__main__":
     arg=args()
     HOST = arg.host  # Standard loopback interface address (localhost)
@@ -48,8 +49,9 @@ if __name__=="__main__":
                 count+=1
                 if not os.path.exists(os.path.join(ROOT,data)):
                     os.makedirs(os.path.join(ROOT,data),exist_ok=True)
-                cv2.imwrite(data+"_"+str(time.time())+"_.jpg",frame)
-                print("saved image")
+                if count%5==0:
+                    cv2.imwrite(data+"_"+str(time.time())+"_.jpg",frame)
+                    print("saved image")
                 
                 
 
