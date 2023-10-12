@@ -50,7 +50,7 @@ if __name__=="__main__":
                 if not os.path.exists(os.path.join(ROOT,data)):
                     os.makedirs(os.path.join(ROOT,data),exist_ok=True)
                 if count%5==0:
-                    cv2.imwrite(data+"_"+str(time.time())+"_.jpg",frame)
+                    cv2.imwrite(os.path.join(ROOT,data,data+"_"+str(time.time())+"_.jpg"),frame)
                     print("saved image")
                 
                 
