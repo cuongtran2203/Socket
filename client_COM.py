@@ -7,7 +7,7 @@ import pygame
 def args():
     parser=argparse.ArgumentParser()
     parser.add_argument("--host",default="localhost",help="điền địa chỉ IP")
-    parser.add_argument("--ip",default=9999,help="Chọn cổng port")
+    parser.add_argument("--port",default=9999,help="Chọn cổng port")
     args=parser.parse_args()
     return args
 
