@@ -7,7 +7,7 @@ import time
 def args():
     parser=argparse.ArgumentParser()
     parser.add_argument("--host",default="localhost",type=str,help="điền địa chỉ IP")
-    parser.add_argument("--ip",default=9999,type=int,help="Chọn cổng port")
+    parser.add_argument("--port",default=9999,type=int,help="Chọn cổng port")
     parser.add_argument("--com",default="/dev/ttyUSB1",help="Chọn cổng COM kết nối arduino")
     parser.add_argument("--ip_cam",default=None,type=str,help="Nhập địa chỉ ip cam")
     parser.add_argument("--baudrate",default=9600,type=int,help="lựa chọn tần số kết nối")
@@ -18,7 +18,7 @@ ROOT=os.makedirs("datasets",exist_ok=True)
 if __name__=="__main__":
     arg=args()
     HOST = arg.host  # Standard loopback interface address (localhost)
-    PORT = arg.ip  # Port to listen on (non-privileged ports are > 1023)
+    PORT = arg.port  # Port to listen on (non-privileged ports are > 1023)
     COM=arg.com
     ser = serial.Serial(
     port=COM,
